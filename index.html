@@ -3,7 +3,276 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Vehicle Logos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f5f5f5;
+        margin: 0;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+        width: 100%;
+        padding: 20px;
+      }
+
+      .logo-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      .logo-card img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .logo-card span {
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="container" id="logoGrid"></div>
+    <script>
+      const logos = [
+        "Acura",
+        "Adly",
+        "Agrale",
+        "Alfa Romeo",
+        "Am Gen",
+        "Amazonas",
+        "Aprilia",
+        "Asia Motors",
+        "Aston Martin",
+        "Atala",
+        "Audi",
+        "Avelloz",
+        "Baby",
+        "Bajaj",
+        "Bee",
+        "Benelli",
+        "Bepobus",
+        "Beta",
+        "Bimota",
+        "BMW",
+        "Brandy",
+        "Brava",
+        "BRM",
+        "BRP",
+        "Buell",
+        "Bueno",
+        "Buggy",
+        "Bugre",
+        "Bull",
+        "Bycristo",
+        "BYD",
+        "CAB Motors",
+        "Cadillac",
+        "Cagiva",
+        "Caloi",
+        "Caoa Chery",
+        "Caoa Chery/Chery",
+        "CBT Jipe",
+        "Chana",
+        "Changan",
+        "Chevrolet",
+        "Chrysler",
+        "Ciccobus",
+        "Citroën",
+        "Cross Lander",
+        "D2D Motors",
+        "Daelim",
+        "Daewoo",
+        "DAF",
+        "Dafra",
+        "Daihatsu",
+        "Dayang",
+        "Dayun",
+        "Derbi",
+        "DFSK",
+        "Dodge",
+        "Ducati",
+        "Effa",
+        "Effa-JMC",
+        "Emme",
+        "Engesa",
+        "Envemo",
+        "Ferrari",
+        "Fever",
+        "Fiat",
+        "Fibravan",
+        "Ford",
+        "Foton",
+        "Fox",
+        "Fusco Motosegura",
+        "Fyber",
+        "FYM",
+        "Garinni",
+        "Gas Gas",
+        "Geely",
+        "GM - Chevrolet",
+        "GMC",
+        "Great Wall",
+        "Green",
+        "Gurgel",
+        "GWM",
+        "Hafei",
+        "Haobao",
+        "Haojue",
+        "Harley-Davidson",
+        "Hartford",
+        "Hero",
+        "Hitech Electric",
+        "Honda",
+        "Husaberg",
+        "Husqvarna",
+        "Hyundai",
+        "Indian",
+        "Iros",
+        "Isuzu",
+        "Iveco",
+        "JAC",
+        "Jaguar",
+        "Jeep",
+        "Jiapeng Volcano",
+        "Jinbei",
+        "Johnnypag",
+        "Jonny",
+        "JPX",
+        "Kahena",
+        "Kasinski",
+        "Kawasaki",
+        "Kia Motors",
+        "Kimco",
+        "KTM",
+        "Kymco",
+        "L'Aquila",
+        "Lada",
+        "Lamborghini",
+        "Land Rover",
+        "Landum",
+        "Lavrale",
+        "Lerivo",
+        "Lexus",
+        "Lifan",
+        "Lobini",
+        "Lon-V",
+        "Lotus",
+        "Magrão Triciclos",
+        "Mahindra",
+        "Malaguti",
+        "MAN",
+        "Marcopolo",
+        "Mascarello",
+        "Maserati",
+        "Matra",
+        "Maxibus",
+        "Mazda",
+        "McLaren",
+        "Mercedes-Benz",
+        "Mercury",
+        "MG",
+        "Mini",
+        "Mitsubishi",
+        "Miura",
+        "Miza",
+        "Moto Guzzi",
+        "Motocar",
+        "Motorino",
+        "MRX",
+        "MV Agusta",
+        "MVK",
+        "Navistar",
+        "Neobus",
+        "Nissan",
+        "Niu",
+        "Orca",
+        "Pegassi",
+        "Peugeot",
+        "Piaggio",
+        "Plymouth",
+        "Polaris",
+        "Pontiac",
+        "Porsche",
+        "Puma-Alfa",
+        "RAM",
+        "Regal Partor",
+        "Regal Raptor",
+        "Regal Rartor",
+        "Rely",
+        "Renault",
+        "Riguete",
+        "Rolls-Royce",
+        "Rover",
+        "Royal Enfield",
+        "Saab",
+        "Saab-Scania",
+        "Sanyang",
+        "Saturn",
+        "Scania",
+        "Seat",
+        "Seres",
+        "Shacman",
+        "Shineray",
+        "Siamoto",
+        "Sinotruk",
+        "Smart",
+        "SsangYong",
+        "Subaru",
+        "Sundown",
+        "Super Soco",
+        "Suzuki",
+        "TAC",
+        "Targos",
+        "Tiger",
+        "Toyota",
+        "Traxx",
+        "Triumph",
+        "Troller",
+        "Ventane Motors",
+        "Vento",
+        "Volkswagen",
+        "Voltz",
+        "Volvo",
+        "VW - Volkswagen",
+        "Wake",
+        "Walk",
+        "Walkbus",
+        "Watts",
+        "Wuyang",
+        "Yamaha",
+        "Zontes",
+      ].map((name) => ({
+        name,
+        src: `logos/${name.toLowerCase().replace(/[^a-z0-9]/g, "-")}.svg`,
+      }));
+
+      const logoGrid = document.getElementById("logoGrid");
+      logos.forEach((logo) => {
+        const card = document.createElement("div");
+        card.classList.add("logo-card");
+        card.innerHTML = `
+                <img src="${logo.src}" alt="${logo.name}">
+                <span>${logo.name}</span>
+            `;
+        logoGrid.appendChild(card);
+      });
+    </script>
+  </body>
 </html>
