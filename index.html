@@ -305,6 +305,8 @@
 
       let totalLogos = logos.length;
       let loadedLogos = 0;
+      let logosComImagem = [];
+      let logosSemImagem = [];
 
       // Função para atualizar a barra de progresso
       function updateProgressBar(progress) {
@@ -312,43 +314,61 @@
       }
 
       // Função para verificar se a imagem existe
-      function imageExists(src, callback) {
-        const img = new Image();
-        img.onload = () => callback(true); // Se carregada, chama o callback com true
-        img.onerror = () => callback(false); // Se falhar, chama o callback com false
-        img.src = src;
+      function imageExists(logo) {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.onload = () => resolve({ logo, exists: true });
+          img.onerror = () => resolve({ logo, exists: false });
+          img.src = logo.src;
+        });
+      }
+
+      // Função para criar o card do logo
+      function createLogoCard(logo, exists) {
+        const card = document.createElement("div");
+        card.classList.add("logo-card");
+
+        if (exists) {
+          card.innerHTML = `
+      <img src="${logo.src}" alt="${logo.name}">
+      <span>${logo.name}</span>
+    `;
+        } else {
+          card.innerHTML = `
+      <div style="width: 60px; height: 40px; background-color: #ccc;"></div>
+      <span>${logo.name}</span>
+    `;
+        }
+
+        return card;
       }
 
       // Função para carregar os logos
-      function loadLogos() {
-        logos.forEach((logo, index) => {
-          imageExists(logo.src, (exists) => {
-            // Criar o card de logo, mesmo que a imagem não exista
-            const card = document.createElement("div");
-            card.classList.add("logo-card");
+      async function loadLogos() {
+        const checks = await Promise.all(logos.map(imageExists));
 
-            if (exists) {
-              // Se a imagem existe, adicionar a imagem ao card
-              card.innerHTML = `
-          <img src="${logo.src}" alt="${logo.name}">
-          <span>${logo.name}</span>
-        `;
-              loadedLogos++; // Contabiliza para o progresso
-            } else {
-              // Se a imagem não existe, apenas o nome do logo será exibido
-              card.innerHTML = `
-          <div style="width: 60px; height: 40px; background-color: #ccc;"></div>
-          <span>${logo.name}</span>
-        `;
-            }
-
-            logoGrid.appendChild(card);
-
-            // Atualiza a barra de progresso
-            const progress = (loadedLogos / totalLogos) * 100;
-            updateProgressBar(progress);
-          });
+        checks.forEach(({ logo, exists }) => {
+          if (exists) {
+            logosComImagem.push(logo);
+            loadedLogos++;
+          } else {
+            logosSemImagem.push(logo);
+          }
         });
+
+        // Adiciona os logos com imagem primeiro
+        logosComImagem.forEach((logo) =>
+          logoGrid.appendChild(createLogoCard(logo, true))
+        );
+
+        // Depois adiciona os logos sem imagem
+        logosSemImagem.forEach((logo) =>
+          logoGrid.appendChild(createLogoCard(logo, false))
+        );
+
+        // Atualiza a barra de progresso apenas para os carregados corretamente
+        const progress = (loadedLogos / totalLogos) * 100;
+        updateProgressBar(progress);
       }
 
       // Iniciar o carregamento dos logos
