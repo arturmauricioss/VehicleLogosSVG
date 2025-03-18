@@ -1,0 +1,9 @@
+{
+  "functions": {
+    "api/download.js": {
+      "memory": 128,
+      "maxDuration": 10
+    }
+  },
+  "includeFiles": ["logos/**"]
+}

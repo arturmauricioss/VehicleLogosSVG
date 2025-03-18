@@ -16,10 +16,22 @@ export default function handler(req, res) {
   const archive = archiver("zip", { zlib: { level: 9 } });
 
   output.on("close", () => {
+    // Definir os headers para o download
     res.setHeader("Content-Type", "application/zip");
     res.setHeader("Content-Disposition", "attachment; filename=logos.zip");
 
-    res.sendFile(zipPath);
+    // Em vez de sendFile, usamos res.download no Vercel ou ambiente similar
+    res.download(zipPath, "logos.zip", (err) => {
+      if (err) {
+        console.error("Erro ao fazer download:", err);
+        return res
+          .status(500)
+          .json({ error: "Erro ao enviar o arquivo para download." });
+      }
+
+      // Deletar o arquivo após o envio
+      fs.unlinkSync(zipPath); // Apaga o arquivo temporário após o envio
+    });
   });
 
   archive.on("error", (err) => res.status(500).json({ error: err.message }));
