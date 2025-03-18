@@ -3,9 +3,15 @@ import path from "path";
 import fs from "fs";
 
 export default function handler(req, res) {
-  const zipPath = "/tmp/logos.zip"; // Usamos /tmp na Vercel, pois é a única pasta onde podemos gravar arquivos.
+  const dirPath = path.resolve("./logos");
 
-  // Criar stream de escrita
+  if (!fs.existsSync(dirPath)) {
+    return res
+      .status(500)
+      .json({ error: "A pasta logos não existe no servidor." });
+  }
+
+  const zipPath = "/tmp/logos.zip"; // Usamos /tmp na Vercel, pois é a única pasta onde podemos gravar arquivos.
   const output = fs.createWriteStream(zipPath);
   const archive = archiver("zip", { zlib: { level: 9 } });
 
@@ -13,7 +19,6 @@ export default function handler(req, res) {
     res.setHeader("Content-Type", "application/zip");
     res.setHeader("Content-Disposition", "attachment; filename=logos.zip");
 
-    // Enviar arquivo ZIP
     res.sendFile(zipPath);
   });
 
@@ -22,7 +27,7 @@ export default function handler(req, res) {
   archive.pipe(output);
 
   // Adicionar a pasta logos ao ZIP
-  archive.directory(path.resolve("./logos"), "logos");
+  archive.directory(dirPath, "logos");
 
   archive.finalize();
 }
