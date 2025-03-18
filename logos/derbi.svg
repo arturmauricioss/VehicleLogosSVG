@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="600"
+   height="400"
+   viewBox="304 504 200 391"
+   sodipodi:docname="derbi-seeklogo.ai"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+   <g transform="scale(1,1.4)">
+  <defs
+     id="defs6">
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="0"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(33.746094,0,0,-33.746094,84.097168,466.57422)"
+       spreadMethod="pad"
+       id="linearGradient26">
+      <stop
+         style="stop-opacity:1;stop-color:#87888a"
+         offset="0"
+         id="stop22" />
+      <stop
+         style="stop-opacity:1;stop-color:#c6c7c9"
+         offset="1"
+         id="stop24" />
+    </linearGradient>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath38">
+      <path
+         d="M 0,841.89 H 595.276 V 0 H 0 Z"
+         id="path36" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="derbi-seeklogo"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,1122.52)">
+    <g
+       id="g10">
+      <g
+         id="g12">
+        <g
+           id="g18">
+          <g
+             id="g20">
+            <path
+               d="M 117.843,399.135 H 84.097 v 134.879 h 33.746 z"
+               style="fill:url(#linearGradient26);stroke:none"
+               id="path28" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <path
+       d="M 117.847,399.142 H 522.462 V 534.018 H 117.847 Z"
+       style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="path30" />
+    <g
+       id="g32">
+      <g
+         id="g34"
+         clip-path="url(#clipPath38)">
+        <g
+           id="g40"
+           transform="translate(255.0122,460.3604)">
+          <path
+             d="M 0,0 H 36.279 V 13.491 H 0.134 v 9.037 H 39.383 V 35.744 H -21.581 V -23.329 H 40.192 V -9.98 H 0 Z m 171.557,-9.98 c -0.944,-0.404 -2.562,-0.675 -4.582,-0.675 H 146.742 V 0.676 h 19.825 c 2.56,0 4.046,0 5.397,-0.402 1.753,-0.674 2.829,-2.161 2.829,-4.587 0,-2.295 -0.542,-4.449 -3.236,-5.667 m -24.815,33.179 h 18.882 c 2.019,0 3.371,-0.134 4.181,-0.539 1.885,-1.076 2.695,-2.694 2.695,-4.45 0,-2.7 -0.943,-4.181 -2.563,-4.719 -0.542,-0.271 -1.209,-0.676 -4.446,-0.676 H 146.742 Z M 181.403,8.635 c 7.148,1.753 11.33,5.799 11.33,13.217 0,2.694 -0.81,7.551 -5.124,10.654 -4.047,2.971 -9.578,3.238 -13.625,3.238 h -47.742 v -59.073 h 43.563 c 5.121,0 10.653,0.4 15.377,2.156 5.932,2.29 10.521,7.148 10.521,15.374 0,4.184 -0.81,6.879 -3.379,9.578 -3.23,3.504 -7.417,4.314 -10.921,4.856 m 21.85,-31.964 h 21.711 V 35.744 H 203.253 Z M 87.536,10.254 H 71.074 v 12.135 h 18.215 c 1.618,0 3.77,-0.266 5.389,-2.022 1.084,-1.077 1.486,-2.696 1.486,-4.18 0,-5.933 -5.391,-5.933 -8.628,-5.933 M 113.56,4.856 c 2.428,3.103 3.779,7.826 3.779,12.006 0,6.066 -2.561,11.865 -6.875,15.102 -4.856,3.646 -11.464,3.78 -16.595,3.78 H 49.904 v -59.073 h 21.17 V -3.1 h 12.273 l 11.74,-20.229 h 23.462 l -14.293,22.386 c 2.562,0.543 6.342,2.295 9.304,5.799 M -55.435,-5.391 c -2.29,-2.161 -6.204,-3.371 -12.945,-3.371 h -8.497 V 15.11 l -12.408,6.199 h 21.577 c 3.508,0 8.227,-0.401 11.736,-3.233 2.698,-2.295 4.989,-6.204 4.989,-11.601 0,-4.72 -1.886,-9.438 -4.452,-11.866 m -11.869,41.135 h -31.288 v -59.073 h 31.559 c 9.98,0 17.534,0.538 23.872,3.908 6.745,3.509 10.25,8.232 11.736,11.603 1.885,4.179 2.698,8.898 2.698,13.483 0,8.769 -2.832,13.892 -4.046,16.053 -7.556,13.217 -25.09,14.026 -34.531,14.026"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+             id="path42" />
+        </g>
+      </g>
+    </g>
+  </g>
+</g>
+</svg>
