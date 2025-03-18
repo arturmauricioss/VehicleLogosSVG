@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1600" viewBox="105 0 400 400">
+  <g transform="scale(1.55,1.55)">
+  <defs>
+    <!-- Definindo a máscara para ocultar a área dentro do caminho -->
+    <mask id="mask1">
+      <!-- Máscara branca (visível) para todo o SVG -->
+      <rect width="100%" height="100%" fill="white"/>
+      <!-- A parte do caminho que você quer ocultar (buraco) é preta, o que "corta" a área -->
+      <path fill="black" d="M118.109 163.001l-28.326 39.296H304.77l-29.78-39.296H118.109z"/>
+    </mask>
+  </defs>
+  
+  <g fill-rule="evenodd" clip-rule="evenodd">
+    <!-- Aplicando a máscara no path vermelho -->
+    <path fill="#cc2229" d="M32.405 254.689l-18.884-34.927 78.441-108.426h145.987l-42.126-56.032-26.873 36.384h-62.462L173.308 0h45.757l161.24 216.85-21.063 37.839H32.405z" mask="url(#mask1)"/>
+  </g>
+</g>
+</svg>

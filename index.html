@@ -79,11 +79,34 @@
         background-color: #76c7c0;
         transition: width 0.2s ease-in-out;
       }
+      #progressText {
+        color: black;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0);
+      }
     </style>
   </head>
   <body>
     <div class="progress-bar-container" style="position: fixed">
-      <div class="progress-bar" id="progressBar"></div>
+      <div class="progress-bar" id="progressBar">
+        <span
+          id="progressText"
+          style="
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            top: 50%;
+            transform: translateY(-50%);
+          "
+          >0/0</span
+        >
+        <br />
+
+        <button onclick="baixarLogos()">↓</button>
+        <br />
+      </div>
     </div>
     <div class="container" id="logoGrid"></div>
     <script>
@@ -311,6 +334,9 @@
       // Função para atualizar a barra de progresso
       function updateProgressBar(progress) {
         progressBar.style.width = `${progress}%`;
+        document.getElementById(
+          "progressText"
+        ).textContent = `${loadedLogos}/${totalLogos}`;
       }
 
       // Função para verificar se a imagem existe
@@ -373,6 +399,9 @@
 
       // Iniciar o carregamento dos logos
       loadLogos();
+      function baixarLogos() {
+        window.location.href = "/api/download";
+      }
     </script>
   </body>
 </html>
